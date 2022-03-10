@@ -231,7 +231,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -443,7 +443,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   machineGunBulletPrefab: {fileID: 8127761459471770135, guid: 6f3397c1276b9c3449289a413f2aff21,
     type: 3}
+  isShooting: 0
   turnDirection: 0
+  isMachineGun: 1
+  canShoot: 1
 --- !u!1 &960095718
 GameObject:
   m_ObjectHideFlags: 0

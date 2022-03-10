@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     //reference to the rigidbody obv
     private Rigidbody2D rb;
     //if you're shooting, you turn slower
-    private bool isShooting;
+    public bool isShooting;
     //this is how the guy is doing turning, a bit weird but whatever
     public float turnDirection;
     //speed the character moves, making it public so different weapons can change it
@@ -42,15 +42,7 @@ public class Player : MonoBehaviour
         {
             turnDirection = 0.0f;
         }
-        if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
-        {
-            isShooting = true;
-            Shoot();
-        }
-        else if (Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0))
-        {
-            isShooting = false;
-        }
+        
     }
 
     private void FixedUpdate()
@@ -69,11 +61,20 @@ public class Player : MonoBehaviour
         {
             rb.AddTorque(turnDirection * turnSpeedWhileShooting);
         }
+        if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
+        {
+            isShooting = true;
+            Shoot();
+        }
+        else 
+        {
+            isShooting = false;
+        }
     }
 
     private void Shoot()
     {
-        if (isMachineGun == true && canShoot == true)
+        if (isMachineGun == true /*&& canShoot == true*/)
         {
             MachineGunBullet bullet = Instantiate(this.machineGunBulletPrefab, this.transform.position, this.transform.rotation);
             bullet.Project(this.transform.up);
