@@ -11,11 +11,11 @@ public class Player : MonoBehaviour
     //this is how the guy is doing turning, a bit weird but whatever
     public float turnDirection;
     //speed the character moves, making it public so different weapons can change it
-    public float thrustSpeed = 5;
+    private float thrustSpeed = 3;
     //speed the character turns, making it public so different chassis can change it
-    public float turnSpeed = 5;
+    private float turnSpeed = 3;
     //speed the character turns while shooting, making it public so different chassis/guns can change it
-    public float turnSpeedWhileShooting = 2.5f;
+    private float turnSpeedWhileShooting = 1.5f;
 
     private void Awake()
     {
