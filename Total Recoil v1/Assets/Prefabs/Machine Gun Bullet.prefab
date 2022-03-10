@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4495336681564391192}
   - component: {fileID: 4495336681564391195}
   - component: {fileID: 4495336681564391194}
+  - component: {fileID: 8127761459471770135}
   m_Layer: 0
   m_Name: Machine Gun Bullet
   m_TagString: Untagged
@@ -136,3 +137,15 @@ PolygonCollider2D:
       - {x: 0.049498547, y: 0.1147493}
       - {x: 0.027097424, y: 0.13810028}
       - {x: -0.012348102, y: 0.1381002}
+--- !u!114 &8127761459471770135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4495336681564391173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0688f557d4e9c9479463ea627b4c3ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

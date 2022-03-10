@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public MachineGunBullet machineGunBulletPrefab;
     //reference to the rigidbody obv
     private Rigidbody2D rb;
     //if you're shooting, you turn slower
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour
     private float turnSpeed = 1.5f;
     //speed the character turns while shooting, making it public so different chassis/guns can change it
     private float turnSpeedWhileShooting = 1f;
+    private float shootingFrequency = 0.1f;
 
     private void Awake()
     {
@@ -24,17 +26,6 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        //test function
-        /*
-        if (Input.GetKey(KeyCode.W))
-        {
-            isShooting = true;
-        }
-        if (Input.GetKeyUp(KeyCode.W))
-        {
-            isShooting = false;
-        }
-        */
         //setting turn direction based on inputs, values are reversed because we're applying torque to the player
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
@@ -47,6 +38,15 @@ public class Player : MonoBehaviour
         else
         {
             turnDirection = 0.0f;
+        }
+        if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
+        {
+            isShooting = true;
+            Shoot();
+        }
+        else if (Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0))
+        {
+            isShooting = false;
         }
     }
 
@@ -66,5 +66,11 @@ public class Player : MonoBehaviour
         {
             rb.AddTorque(turnDirection * turnSpeedWhileShooting);
         }
+    }
+
+    private void Shoot()
+    {
+        MachineGunBullet bullet = Instantiate(this.machineGunBulletPrefab, this.transform.position, this.transform.rotation);
+        bullet.Project(this.transform.up);
     }
 }
