@@ -44,7 +44,7 @@ public class Asteroid : MonoBehaviour
     {
         if(collision.gameObject.tag == "Bullet")
         {
-            if((this.size * 0.5f) >= this.minSize)
+            if((this.size * 0.9f) >= this.minSize)
             {
                 Split();
                 Split();
@@ -60,7 +60,7 @@ public class Asteroid : MonoBehaviour
 
         Asteroid half = Instantiate(this, position, this.transform.rotation);
         half.size = this.size * 0.5f;
-        half.SetTrajectory(Random.insideUnitCircle.normalized);
+        half.SetTrajectory(Random.insideUnitCircle.normalized * this.speed * 0.1f);
     }
 
 }
