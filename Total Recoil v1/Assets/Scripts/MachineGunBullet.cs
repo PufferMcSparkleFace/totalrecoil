@@ -18,4 +18,9 @@ public class MachineGunBullet : MonoBehaviour
         rb.AddForce(direction * this.speed);
         Destroy(this.gameObject, this.lifetime);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(this.gameObject);
+    }
 }

@@ -18,6 +18,9 @@ public class Player : MonoBehaviour
     //speed the character turns while shooting, making it public so different chassis/guns can change it
     private float turnSpeedWhileShooting = 1f;
     private float shootingFrequency = 0.1f;
+    public bool isMachineGun = true;
+    public bool canShoot = true;
+    private float timeBetweenMachineGunShots = 0.1f;
 
     private void Awake()
     {
@@ -70,7 +73,13 @@ public class Player : MonoBehaviour
 
     private void Shoot()
     {
-        MachineGunBullet bullet = Instantiate(this.machineGunBulletPrefab, this.transform.position, this.transform.rotation);
-        bullet.Project(this.transform.up);
+        if (isMachineGun == true && canShoot == true)
+        {
+            MachineGunBullet bullet = Instantiate(this.machineGunBulletPrefab, this.transform.position, this.transform.rotation);
+            bullet.Project(this.transform.up);
+            canShoot = false;
+            
+        }
+        
     }
 }
