@@ -12,9 +12,9 @@ public class Player : MonoBehaviour
     //this is how the guy is doing turning, a bit weird but whatever
     public float turnDirection;
     //speed the character moves, making it public so different weapons can change it
-    private float thrustSpeed = 3;
+    public float thrustSpeed = 7.5f;
     //speed the character turns, making it public so different chassis can change it
-    private float turnSpeed = 1.5f;
+    private float turnSpeed = 3f;
     //speed the character turns while shooting, making it public so different chassis/guns can change it
     private float turnSpeedWhileShooting = 1f;
     private float shootingFrequency = 0.1f;
