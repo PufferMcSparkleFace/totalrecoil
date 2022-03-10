@@ -74,13 +74,20 @@ public class Player : MonoBehaviour
 
     private void Shoot()
     {
-        if (isMachineGun == true /*&& canShoot == true*/)
+        if (isMachineGun == true && canShoot == true)
         {
             MachineGunBullet bullet = Instantiate(this.machineGunBulletPrefab, this.transform.position, this.transform.rotation);
             bullet.Project(this.transform.up);
             canShoot = false;
+            StartCoroutine(MachineGunFire());
             
         }
         
+    }
+
+    IEnumerator MachineGunFire()
+    {
+        yield return new WaitForSeconds(timeBetweenMachineGunShots);
+        canShoot = true;
     }
 }
