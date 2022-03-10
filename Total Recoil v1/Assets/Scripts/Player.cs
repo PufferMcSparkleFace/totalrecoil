@@ -17,10 +17,8 @@ public class Player : MonoBehaviour
     private float turnSpeed = 5f;
     //speed the character turns while shooting, making it public so different chassis/guns can change it
     private float turnSpeedWhileShooting = 2.5f;
-    private float shootingFrequency = 0.1f;
     public bool isMachineGun = true;
     public bool canShoot = true;
-    private float timeBetweenMachineGunShots = 0.1f;
 
     private void Awake()
     {
@@ -47,11 +45,6 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //when you're shooting add force in opposite direction to shot
-        if(isShooting == true)
-        {
-            rb.AddForce(-this.transform.up * thrustSpeed);
-        }
         //if you're turning add torque to turn, if you're shooting you turn slower
         if(turnDirection != 0.0 && isShooting == false)
         {
@@ -61,15 +54,27 @@ public class Player : MonoBehaviour
         {
             rb.AddTorque(turnDirection * turnSpeedWhileShooting);
         }
-        if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
+
+        if(isMachineGun == true)
         {
-            isShooting = true;
-            Shoot();
+            if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
+            {
+                isShooting = true;
+                Shoot();
+            }
+            else
+            {
+                isShooting = false;
+            }
+
+            //when you're shooting add force in opposite direction to shot
+            if (isShooting == true)
+            {
+                rb.AddForce(-this.transform.up * thrustSpeed);
+            }
+
         }
-        else 
-        {
-            isShooting = false;
-        }
+      
     }
 
     private void Shoot()
@@ -87,7 +92,7 @@ public class Player : MonoBehaviour
 
     IEnumerator MachineGunFire()
     {
-        yield return new WaitForSeconds(timeBetweenMachineGunShots);
+        yield return new WaitForSeconds(0.1f);
         canShoot = true;
     }
 }
