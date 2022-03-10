@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         //test function
+        /*
         if (Input.GetKey(KeyCode.W))
         {
             isShooting = true;
@@ -33,6 +34,7 @@ public class Player : MonoBehaviour
         {
             isShooting = false;
         }
+        */
         //setting turn direction based on inputs, values are reversed because we're applying torque to the player
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
