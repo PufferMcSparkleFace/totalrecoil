@@ -8,8 +8,8 @@ public class Asteroid : MonoBehaviour
     private Rigidbody2D rb;
     public Sprite[] sprites;
     public float size = 5.0f;
-    public float minSize = 3.0f;
-    public float maxSize = 15.0f;
+    public float minSize = 2f;
+    public float maxSize = 5f;
     public float speed = 75.0f;
     public float lifetime = 60;
 
