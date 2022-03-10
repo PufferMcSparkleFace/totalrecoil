@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class AsteroidSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float spawnRate = 1.0f;
+    public int spawnAmount = 1;
+
+    private void Start()
     {
-        
+        //repeatedly calls function, starting it at time x and repeating every time y
+        InvokeRepeating(nameof(Spawn), this.spawnRate, this.spawnRate);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Spawn()
     {
-        
+        for(int i = 0; i < this.spawnAmount; i++)
+        {
+
+        }
     }
 }
