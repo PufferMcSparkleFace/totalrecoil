@@ -10,6 +10,8 @@ public class Asteroid : MonoBehaviour
     public float size = 5.0f;
     public float minSize = 3.0f;
     public float maxSize = 15.0f;
+    public float speed = 75.0f;
+    public float lifetime = 60;
 
     private void Awake()
     {
@@ -30,6 +32,12 @@ public class Asteroid : MonoBehaviour
         this.transform.localScale = Vector3.one * this.size;
 
         rb.mass = this.size;
+    }
+
+    public void SetTrajectory(Vector2 direction)
+    {
+        rb.AddForce(direction * speed);
+        Destroy(this.gameObject, this.lifetime);
     }
 
     
