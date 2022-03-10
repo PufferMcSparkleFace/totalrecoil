@@ -273,6 +273,7 @@ GameObject:
   - component: {fileID: 520510902}
   - component: {fileID: 520510901}
   - component: {fileID: 520510904}
+  - component: {fileID: 520510905}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -299,7 +300,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!212 &520510902
 SpriteRenderer:
@@ -428,6 +429,22 @@ PolygonCollider2D:
       - {x: -0.03, y: -0.37}
       - {x: 0.06, y: -0.35}
       - {x: 0.04, y: -0.78999996}
+--- !u!114 &520510905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520510900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 539f3a1fd6ea8f049a6c682841dbafb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnDirection: 0
+  thrustSpeed: 1
+  turnSpeed: 1
+  turnSpeedWhileShooting: 0.5
 --- !u!1 &960095718
 GameObject:
   m_ObjectHideFlags: 0
