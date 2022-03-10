@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MachineGunBullet : MonoBehaviour
 {
-    public float speed = 500.0f;
+    public float speed = 750.0f;
     private Rigidbody2D rb;
-    public float lifetime = 10.0f;
+    public float lifetime = 3.0f;
 
     private void Awake()
     {

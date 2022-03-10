@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4495336681564391195}
   - component: {fileID: 4495336681564391194}
   - component: {fileID: 8127761459471770135}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Machine Gun Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,3 +149,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0688f557d4e9c9479463ea627b4c3ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 750
+  lifetime: 10

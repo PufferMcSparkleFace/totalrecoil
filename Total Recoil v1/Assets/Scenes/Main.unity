@@ -274,7 +274,7 @@ GameObject:
   - component: {fileID: 520510901}
   - component: {fileID: 520510904}
   - component: {fileID: 520510905}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -441,6 +441,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539f3a1fd6ea8f049a6c682841dbafb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  machineGunBulletPrefab: {fileID: 8127761459471770135, guid: 6f3397c1276b9c3449289a413f2aff21,
+    type: 3}
   turnDirection: 0
 --- !u!1 &960095718
 GameObject:
