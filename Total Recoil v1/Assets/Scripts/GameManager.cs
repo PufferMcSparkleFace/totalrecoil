@@ -6,7 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public Player playerScript;
     public GameObject playerObject;
-    public float health = 100f;
+    public float health;
+    public float maxHealth = 100f;
     public float healRate = 0.1f;
     public float healRateWhileShooting = 0.5f;
     public bool isHealing;
@@ -15,13 +16,22 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        rb = playerObject.GetComponent<Rigidbody2D>();  
+        rb = playerObject.GetComponent<Rigidbody2D>();
+        health = maxHealth;
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if(health <= 0)
         {
             GameOver();
+        }
+        if(isHealing == true && playerScript.isShooting == true && health < maxHealth)
+        {
+            health = health + healRateWhileShooting;
+        }
+        else if(isHealing == true && playerScript.isShooting == false && health < maxHealth)
+        {
+            health = health + healRate;
         }
     }
     public void GameOver()
