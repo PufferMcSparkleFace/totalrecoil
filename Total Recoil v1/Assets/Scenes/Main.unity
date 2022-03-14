@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 520510905}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -478,12 +478,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbfc40c94730e5249baeb124b5b05eb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 520510905}
+  playerScript: {fileID: 520510905}
+  playerObject: {fileID: 520510900}
   health: 100
   healRate: 0.1
   healRateWhileShooting: 0.5
   isHealing: 0
   healTime: 3
+  rb: {fileID: 0}
 --- !u!4 &936074206
 Transform:
   m_ObjectHideFlags: 0

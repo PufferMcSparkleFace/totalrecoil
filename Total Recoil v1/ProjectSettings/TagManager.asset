@@ -7,6 +7,7 @@ TagManager:
   - Projectile
   - Bullet
   - Asteroid
+  - 'Player '
   layers:
   - Default
   - TransparentFX
