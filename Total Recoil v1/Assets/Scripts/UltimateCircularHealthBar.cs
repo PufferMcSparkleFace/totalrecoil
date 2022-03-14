@@ -11,7 +11,7 @@ namespace RengeGames.HealthBars {
     [DisallowMultipleComponent]
     [AddComponentMenu("Health Bars/Circular Segmented Health Bar")]
     public class UltimateCircularHealthBar : MonoBehaviour, ISegmentedHealthBar {
-        [Header("Data")] public float SegmentCount = 0f;
+        [Header("Data")] public float SegmentCount = 5f;
         public float RemovedSegments = 0f;
 
         [Header("Appearance")] [Range(0, 1)] public float Spacing = 0.04f;

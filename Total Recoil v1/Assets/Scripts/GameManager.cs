@@ -13,12 +13,12 @@ public class GameManager : MonoBehaviour
     public bool isHealing;
     public float healTime = 3.0f;
     public Rigidbody2D rb;
-    public GameObject healthBar;
 
     private void Awake()
     {
         rb = playerObject.GetComponent<Rigidbody2D>();
         health = maxHealth;
+        
     }
     private void FixedUpdate()
     {
