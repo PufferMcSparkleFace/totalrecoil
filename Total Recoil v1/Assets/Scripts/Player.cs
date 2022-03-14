@@ -12,13 +12,14 @@ public class Player : MonoBehaviour
     //this is how the guy is doing turning, a bit weird but whatever
     public float turnDirection;
     //speed the character moves, making it public so different weapons can change it
-    public float thrustSpeed = 12f;
+    public float thrustSpeed = 15f;
     //speed the character turns, making it public so different chassis can change it
     private float turnSpeed = 5f;
     //speed the character turns while shooting, making it public so different chassis/guns can change it
     private float turnSpeedWhileShooting = 2.5f;
     public bool isMachineGun = true;
     public bool canShoot = true;
+    public GameManager gameManager;
 
     private void Awake()
     {
@@ -94,5 +95,13 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         canShoot = true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Asteroid")
+        {
+            
+        }
     }
 }
