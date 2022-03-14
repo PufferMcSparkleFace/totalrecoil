@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public float health;
     public float maxHealth = 100f;
     public float healRate = 0.1f;
-    public float healRateWhileShooting = 0.5f;
+    public float healRateWhileShooting = 0.05f;
     public bool isHealing;
     public float healTime = 3.0f;
     public Rigidbody2D rb;

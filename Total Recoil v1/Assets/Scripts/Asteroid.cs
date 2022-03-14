@@ -17,6 +17,7 @@ public class Asteroid : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
+        
     }
 
     // Start is called before the first frame update

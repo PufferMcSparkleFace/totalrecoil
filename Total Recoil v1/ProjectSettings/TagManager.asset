@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - Asteroid
   - 'Player '
+  - Small Asteroid
   layers:
   - Default
   - TransparentFX
