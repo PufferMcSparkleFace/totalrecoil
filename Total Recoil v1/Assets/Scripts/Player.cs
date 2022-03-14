@@ -118,7 +118,7 @@ public class Player : MonoBehaviour
     public void ReturnToMap()
     {
         gameManager.Damage(30f);
-        rb.AddForce((target.transform.position - this.transform.position) * 20);
+        rb.AddForce((target.transform.position - this.transform.position) * 17);
     }
 
 
