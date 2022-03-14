@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     public bool canShoot = true;
     public GameManager gameManager;
     public GameObject target;
+    public bool isInside;
 
     private void Awake()
     {
@@ -75,6 +76,12 @@ public class Player : MonoBehaviour
             }
 
         }
+
+        if(isInside == false)
+        {
+            gameManager.Damage(0.1f);
+            rb.AddForce((target.transform.position - this.transform.position) * 0.1f);
+        }
       
     }
 
@@ -111,14 +118,16 @@ public class Player : MonoBehaviour
         if(collision.gameObject.tag == "Bounds")
         {
             Debug.Log("DON'T LEAVE ME");
-            Invoke("ReturnToMap", 1.0f);
+            isInside = false;
         }
     }
 
-    public void ReturnToMap()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        gameManager.Damage(30f);
-        rb.AddForce((target.transform.position - this.transform.position) * 17);
+        if(collision.gameObject.tag == "Bounds")
+        {
+            isInside = true;
+        }
     }
 
 
