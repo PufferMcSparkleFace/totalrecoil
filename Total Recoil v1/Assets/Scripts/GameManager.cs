@@ -7,12 +7,13 @@ public class GameManager : MonoBehaviour
     public Player playerScript;
     public GameObject playerObject;
     public float health;
-    public float maxHealth = 100f;
-    public float healRate = 0.1f;
-    public float healRateWhileShooting = 0.05f;
+    public float maxHealth = 1f;
+    public float healRate = 0.001f;
+    public float healRateWhileShooting = 0.0005f;
     public bool isHealing;
     public float healTime = 3.0f;
     public Rigidbody2D rb;
+    public GameObject healthBar;
 
     private void Awake()
     {

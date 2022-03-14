@@ -101,7 +101,7 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.tag == "Asteroid")
         {
-            gameManager.Damage(40);
+            gameManager.Damage(0.4f);
         }
     }
 }
