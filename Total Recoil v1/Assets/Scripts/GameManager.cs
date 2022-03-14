@@ -33,6 +33,10 @@ public class GameManager : MonoBehaviour
         {
             health = health + healRate;
         }
+        else if(health >= maxHealth)
+        {
+            isHealing = false;
+        }
     }
     public void GameOver()
     {
@@ -44,5 +48,13 @@ public class GameManager : MonoBehaviour
     public void Damage(float damage)
     {
         health = health - damage;
+        isHealing = false;
+        StartCoroutine(Healing());
+    }
+
+    IEnumerator Healing()
+    {
+        yield return new WaitForSeconds(healTime);
+        isHealing = true;
     }
 }
