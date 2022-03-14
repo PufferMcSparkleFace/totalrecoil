@@ -103,14 +103,12 @@ public class Player : MonoBehaviour
         {
             gameManager.Damage(40f);
         }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
         if(collision.gameObject.tag == "Bounds")
         {
             Debug.Log("DON'T LEAVE ME");
         }
     }
+
+   
 
 }
