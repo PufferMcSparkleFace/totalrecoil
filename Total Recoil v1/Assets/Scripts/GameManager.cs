@@ -25,11 +25,11 @@ public class GameManager : MonoBehaviour
         {
             GameOver();
         }
-        if(isHealing == true && playerScript.isShooting == true && health < maxHealth)
+        if(isHealing == true && playerScript.isShooting == true && health < maxHealth && health > 0)
         {
             health = health + healRateWhileShooting;
         }
-        else if(isHealing == true && playerScript.isShooting == false && health < maxHealth)
+        else if(isHealing == true && playerScript.isShooting == false && health < maxHealth && health > 0)
         {
             health = health + healRate;
         }

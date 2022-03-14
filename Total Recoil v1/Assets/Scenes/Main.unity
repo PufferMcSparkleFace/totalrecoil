@@ -481,6 +481,7 @@ MonoBehaviour:
   playerScript: {fileID: 520510905}
   playerObject: {fileID: 520510900}
   health: 100
+  maxHealth: 100
   healRate: 0.1
   healRateWhileShooting: 0.5
   isHealing: 0
