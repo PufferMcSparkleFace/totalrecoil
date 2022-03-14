@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public bool isMachineGun = true;
     public bool canShoot = true;
     public GameManager gameManager;
+    public GameObject target;
 
     private void Awake()
     {
@@ -41,7 +42,6 @@ public class Player : MonoBehaviour
         {
             turnDirection = 0.0f;
         }
-        
     }
 
     private void FixedUpdate()
@@ -104,4 +104,5 @@ public class Player : MonoBehaviour
             gameManager.Damage(40f);
         }
     }
+
 }

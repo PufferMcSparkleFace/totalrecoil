@@ -9,6 +9,7 @@ TagManager:
   - Asteroid
   - 'Player '
   - Small Asteroid
+  - Bounds
   layers:
   - Default
   - TransparentFX
