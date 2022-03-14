@@ -111,7 +111,14 @@ public class Player : MonoBehaviour
         if(collision.gameObject.tag == "Bounds")
         {
             Debug.Log("DON'T LEAVE ME");
+            Invoke("ReturnToMap", 1.0f);
         }
+    }
+
+    public void ReturnToMap()
+    {
+        gameManager.Damage(30f);
+        rb.AddForce((target.transform.position - this.transform.position) * 20);
     }
 
 
