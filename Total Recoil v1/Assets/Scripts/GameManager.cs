@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,11 +14,13 @@ public class GameManager : MonoBehaviour
     public bool isHealing;
     public float healTime = 3.0f;
     public Rigidbody2D rb;
+    public Slider slider;
 
     private void Awake()
     {
         rb = playerObject.GetComponent<Rigidbody2D>();
         health = maxHealth;
+        SetMaxHealth(maxHealth);
         
     }
     private void FixedUpdate()
@@ -29,10 +32,12 @@ public class GameManager : MonoBehaviour
         if(isHealing == true && playerScript.isShooting == true && health < maxHealth && health > 0)
         {
             health = health + healRateWhileShooting;
+            SetHealth(health);
         }
         else if(isHealing == true && playerScript.isShooting == false && health < maxHealth && health > 0)
         {
             health = health + healRate;
+            SetHealth(health);
         }
         else if(health >= maxHealth)
         {
@@ -49,6 +54,7 @@ public class GameManager : MonoBehaviour
     public void Damage(float damage)
     {
         health = health - damage;
+        SetHealth(health);
         isHealing = false;
         StartCoroutine(Healing());
     }
@@ -57,5 +63,17 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(healTime);
         isHealing = true;
+    }
+
+    public void SetHealth(float currentHealth)
+    {
+        slider.value = currentHealth;
+    }
+
+    public void SetMaxHealth(float maxHealth)
+    {
+        slider.maxValue = maxHealth;
+        slider.value = maxHealth;
+
     }
 }
