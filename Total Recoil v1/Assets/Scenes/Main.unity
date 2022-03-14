@@ -448,6 +448,7 @@ MonoBehaviour:
   thrustSpeed: 15
   isMachineGun: 1
   canShoot: 1
+  gameManager: {fileID: 936074205}
 --- !u!1 &936074204
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,6 +479,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 520510905}
+  health: 100
+  healRate: 0.1
+  healRateWhileShooting: 0.5
+  isHealing: 0
+  healTime: 3
 --- !u!4 &936074206
 Transform:
   m_ObjectHideFlags: 0

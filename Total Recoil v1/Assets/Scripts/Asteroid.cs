@@ -42,7 +42,7 @@ public class Asteroid : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Bullet")
+        if(collision.gameObject.tag == "Bullet" || collision.gameObject.tag == "Player")
         {
             if((this.size * 0.9f) >= this.minSize)
             {
