@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MachineGunBullet : MonoBehaviour
 {
-    public float speed = 750.0f;
+    public float speed = 1000.0f;
     private Rigidbody2D rb;
     public float lifetime = 3.0f;
 
