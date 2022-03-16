@@ -22,10 +22,12 @@ public class Player : MonoBehaviour
     public GameManager gameManager;
     public GameObject target;
     public bool isInside;
+    public GameObject machineGunMuzzleFlash;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        machineGunMuzzleFlash.SetActive(false);
     }
 
     private void Update()
@@ -100,7 +102,10 @@ public class Player : MonoBehaviour
 
     IEnumerator MachineGunFire()
     {
-        yield return new WaitForSeconds(0.1f);
+        machineGunMuzzleFlash.SetActive(true);
+        yield return new WaitForSeconds(0.05f);
+        machineGunMuzzleFlash.SetActive(false);
+        yield return new WaitForSeconds(0.05f);
         canShoot = true;
     }
 
