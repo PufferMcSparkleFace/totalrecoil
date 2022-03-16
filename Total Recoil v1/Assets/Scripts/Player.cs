@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Player : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class Player : MonoBehaviour
     public GameObject target;
     public bool isInside;
     public GameObject machineGunMuzzleFlash;
+    public float machineGunScreenShake = 3.0f;
+    public CinemachineVirtualCamera mainCamera;
 
     private void Awake()
     {
@@ -103,8 +106,11 @@ public class Player : MonoBehaviour
     IEnumerator MachineGunFire()
     {
         machineGunMuzzleFlash.SetActive(true);
+        CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin = mainCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = machineGunScreenShake;
         yield return new WaitForSeconds(0.05f);
         machineGunMuzzleFlash.SetActive(false);
+        cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 0;
         yield return new WaitForSeconds(0.05f);
         canShoot = true;
     }
