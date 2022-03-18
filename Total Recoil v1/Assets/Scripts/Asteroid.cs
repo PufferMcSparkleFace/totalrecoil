@@ -15,12 +15,16 @@ public class Asteroid : MonoBehaviour
     public float speed = 75.0f;
     public float lifetime = 60;
     public AudioSource crash;
+    public GameObject canvas;
+    public Score score;
 
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
+        canvas = GameObject.Find("Canvas");
+        score = canvas.GetComponent<Score>();
         
     }
 
@@ -56,6 +60,7 @@ public class Asteroid : MonoBehaviour
             }
             asteroidCollider.enabled = false;
             spriteRenderer.enabled = false;
+            score.UpdateScore(100);
             crash.Play(0);
             Destroy(this.gameObject, 4.0f);
         }

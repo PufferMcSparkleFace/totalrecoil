@@ -9,6 +9,7 @@ public class Score : MonoBehaviour
     public float combo = 1;
     public Text scoreText;
     public Text comboText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +19,6 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            UpdateScore(score++);
-        }
         if(combo <= 1)
         {
             comboText.enabled = false;
