@@ -152,6 +152,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9a04f6cfae75c064997fb1ddf1827c86, type: 3}
   size: 5
   minSize: 2
-  maxSize: 5
+  maxSize: 4
   speed: 75
   lifetime: 10
