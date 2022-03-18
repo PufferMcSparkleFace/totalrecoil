@@ -916,7 +916,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  combo: 1
+  combo: 0
   scoreText: {fileID: 1322678793}
   comboText: {fileID: 199541013}
 --- !u!1 &854940424
