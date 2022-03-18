@@ -972,8 +972,6 @@ MonoBehaviour:
   healTime: 3
   rb: {fileID: 0}
   slider: {fileID: 212810609}
-  crashSoundEffect: {fileID: 970301149855051440, guid: 5dff9b97d055222419be7e516c9b4429,
-    type: 3}
 --- !u!4 &936074206
 Transform:
   m_ObjectHideFlags: 0

@@ -1,17 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Asteroid : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
+    public BoxCollider2D asteroidCollider;
     public Sprite[] sprites;
     public float size = 5.0f;
     public float minSize = 2f;
     public float maxSize = 5f;
     public float speed = 75.0f;
     public float lifetime = 60;
+    public AudioSource crash;
+
 
     private void Awake()
     {
@@ -50,7 +54,10 @@ public class Asteroid : MonoBehaviour
                 Split();
                 Split();
             }
-            Destroy(this.gameObject);
+            asteroidCollider.enabled = false;
+            spriteRenderer.enabled = false;
+            crash.Play(0);
+            Destroy(this.gameObject, 4.0f);
         }
     }
 

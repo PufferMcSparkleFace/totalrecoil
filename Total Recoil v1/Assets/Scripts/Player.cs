@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     public GameObject machineGunMuzzleFlash;
     public float machineGunScreenShake = 3.0f;
     public CinemachineVirtualCamera mainCamera;
+    public float asteroidScreenShake = 15.0f;
 
     private void Awake()
     {
@@ -120,6 +121,8 @@ public class Player : MonoBehaviour
         if(collision.gameObject.tag == "Asteroid")
         {
             gameManager.Damage(40f);
+            CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin = mainCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+            cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = asteroidScreenShake;
         }
         
     }
