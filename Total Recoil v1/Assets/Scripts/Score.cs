@@ -30,10 +30,12 @@ public class Score : MonoBehaviour
         comboText.text = "x" + combo;
     }
 
-    public void UpdateScore(int score)
+    public void UpdateScore(int newScore)
     {
         //StartCoroutine(Combo());
-        scoreText.text = "" + (Mathf.Round(score * combo));
+        float f = newScore * combo * 0.5f;
+        score = (int)(score + Mathf.Round(f));
+        scoreText.text = "" + score;
     }
 
     /*IEnumerator Combo()

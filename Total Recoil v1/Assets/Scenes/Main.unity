@@ -915,7 +915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e91039fcae869e43ba2dfe4f041cec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 1
+  score: 0
   combo: 1
   scoreText: {fileID: 1322678793}
   comboText: {fileID: 199541013}

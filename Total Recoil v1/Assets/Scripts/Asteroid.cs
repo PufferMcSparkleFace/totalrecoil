@@ -60,7 +60,7 @@ public class Asteroid : MonoBehaviour
             }
             asteroidCollider.enabled = false;
             spriteRenderer.enabled = false;
-            score.UpdateScore(100);
+            score.UpdateScore(10);
             crash.Play(0);
             Destroy(this.gameObject, 4.0f);
         }
