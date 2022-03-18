@@ -121,10 +121,17 @@ public class Player : MonoBehaviour
         if(collision.gameObject.tag == "Asteroid")
         {
             gameManager.Damage(40f);
-            CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin = mainCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-            cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = asteroidScreenShake;
+            StartCoroutine(AsteroidImpact());
         }
         
+    }
+
+    IEnumerator AsteroidImpact()
+    {
+        CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin = mainCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = asteroidScreenShake;
+        yield return new WaitForSeconds(0.1f);
+        cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 0;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
