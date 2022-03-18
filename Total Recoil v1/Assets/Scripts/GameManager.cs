@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
     public float healTime = 3.0f;
     public Rigidbody2D rb;
     public Slider slider;
-    public GameObject crashSoundEffect;
 
     private void Awake()
     {
@@ -78,11 +77,4 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void Crash()
-    {
-        GameObject crash = this.crashSoundEffect;
-        Instantiate(crash);
-        Destroy(crash, 2.0f)
-        
-    }
 }
