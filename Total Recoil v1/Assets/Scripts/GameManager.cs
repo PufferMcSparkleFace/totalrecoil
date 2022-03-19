@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public float healTime = 3.0f;
     public Rigidbody2D rb;
     public Slider slider;
+    public GameOver gameOver;
+    public Score score;
 
     private void Awake()
     {
@@ -49,6 +51,11 @@ public class GameManager : MonoBehaviour
         rb.velocity = Vector3.zero;
         rb.angularVelocity = 0.0f;
         playerObject.SetActive(false);
+        gameOver.Setup(score.score);
+        score.scoreText.enabled = false;
+        score.comboText.enabled = false;
+        score.comboTextRed.enabled = false;
+        score.enabled = false;
     }
 
     public void Damage(float damage)

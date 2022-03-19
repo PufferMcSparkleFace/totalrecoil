@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour
 {
-   public void Setup()
+    public Text pointsText;
+   public void Setup(int score)
     {
-
+        gameObject.SetActive(true);
+        pointsText.text = "" + score;
     }
 }
