@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class DoNotRestart : MonoBehaviour
 {
+    private GameObject[] music;
+
+    private void Start()
+    {
+        music = GameObject.FindGameObjectsWithTag("GameMusic");
+        Destroy(music[1]);
+    }
+
     private void Awake()
     {
-        GameObject[] music = GameObject.FindGameObjectsWithTag("GameMusic");
-        if(music.Length > 1)
-        {
-            Destroy(this.gameObject);
-        }
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(transform.gameObject);
     }
 }
