@@ -1281,6 +1281,7 @@ MonoBehaviour:
   comboText: {fileID: 199541013}
   comboTextRed: {fileID: 74855589}
   comboTimer: 250
+  gameOver: {fileID: 1703712159}
 --- !u!1 &735533406
 GameObject:
   m_ObjectHideFlags: 0

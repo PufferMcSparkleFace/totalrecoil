@@ -11,6 +11,7 @@ public class Score : MonoBehaviour
     public Text comboText;
     public Text comboTextRed;
     public float comboTimer = 100;
+    public GameObject gameOver;
 
     // Start is called before the first frame update
     void Start()
@@ -62,9 +63,14 @@ public class Score : MonoBehaviour
 
     public void UpdateScore(int newScore)
     {
-        float f = newScore * ((combo + 1)*0.1f);
-        score = (int)(score + Mathf.Round(f));
-        comboTimer = 100;
-        scoreText.text = "" + score;
+        if (gameOver.activeInHierarchy == false)
+        {
+            float f = newScore * ((combo + 1) * 0.1f);
+            score = (int)(score + Mathf.Round(f));
+            comboTimer = 100;
+            scoreText.text = "" + score;
+        }
+        
+        
     }
 }
