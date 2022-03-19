@@ -10,7 +10,7 @@ public class Score : MonoBehaviour
     public Text scoreText;
     public Text comboText;
     public Text comboTextRed;
-    public float comboTimer = 250;
+    public float comboTimer = 100;
 
     // Start is called before the first frame update
     void Start()
@@ -44,12 +44,12 @@ public class Score : MonoBehaviour
         {
             comboTimer = comboTimer - 1;
         }
-        if(comboTimer > 125 && combo > 0)
+        if(comboTimer > 50 && combo > 0)
         {
             comboText.enabled = true;
             comboTextRed.enabled = false;
         }
-        if(comboTimer <= 125 && combo > 0)
+        if(comboTimer <= 50 && combo > 0)
         {
             comboText.enabled = false;
             comboTextRed.enabled = true;
@@ -64,7 +64,7 @@ public class Score : MonoBehaviour
     {
         float f = newScore * ((combo + 1)*0.1f);
         score = (int)(score + Mathf.Round(f));
-        comboTimer = 250;
+        comboTimer = 100;
         scoreText.text = "" + score;
     }
 }
