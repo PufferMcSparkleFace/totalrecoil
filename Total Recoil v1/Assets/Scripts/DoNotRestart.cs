@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class DoNotRestart : MonoBehaviour
 {
-    public AudioSource bgm;
+    
 
     private void Awake()
     {
-        GameObject currentBGM = GameObject.FindGameObjectWithTag("GameMusic");
-        if(currentBGM == null)
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("GameMusic");
+        if(objs.Length > 1)
         {
-            AudioSource spawned = Instantiate(bgm);
-            spawned.Play();
-            DontDestroyOnLoad(spawned);
+            Destroy(this.gameObject);
         }
+        DontDestroyOnLoad(this.gameObject);
     }
 }
