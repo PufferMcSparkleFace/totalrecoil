@@ -27,11 +27,25 @@ public class Player : MonoBehaviour
     public float machineGunScreenShake = 3.0f;
     public CinemachineVirtualCamera mainCamera;
     public float asteroidScreenShake = 15.0f;
+    private GameObject[] player;
+    private AudioSource audioSource;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         machineGunMuzzleFlash.SetActive(false);
+        DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectsWithTag("Player");
+        for (int i = 0; i > 0; i++)
+        {
+            audioSource = player[i].GetComponent<AudioSource>();
+            audioSource.enabled = false;
+        }
+        
     }
 
     private void Update()

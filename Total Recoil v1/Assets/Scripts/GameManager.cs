@@ -17,10 +17,12 @@ public class GameManager : MonoBehaviour
     public Slider slider;
     public GameOver gameOver;
     public Score score;
+    public SpriteRenderer sr;
 
     private void Awake()
     {
         rb = playerObject.GetComponent<Rigidbody2D>();
+        sr = playerObject.GetComponent<SpriteRenderer>();
         health = maxHealth;
         SetMaxHealth(maxHealth);
         
@@ -52,7 +54,8 @@ public class GameManager : MonoBehaviour
     {
         rb.velocity = Vector3.zero;
         rb.angularVelocity = 0.0f;
-        playerObject.SetActive(false);
+        sr.enabled = false;
+        playerScript.enabled = false;
         gameOver.Setup(score.score);
         score.scoreText.enabled = false;
         score.comboText.enabled = false;
