@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
         SetMaxHealth(maxHealth);
         
     }
+
+    private void Start()
+    {
+        GameObject.FindGameObjectWithTag("GameMusic").GetComponent<DoNotRestart>().PlayMusic();
+    }
     private void FixedUpdate()
     {
         if(health <= 0)

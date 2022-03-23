@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class DoNotRestart : MonoBehaviour
 {
-    static DoNotRestart instance;
-
-    private void Start()
+    private AudioSource audioSource;
+    private void Awake()
     {
-        if(instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else if(instance != this)
-        {
-            Destroy(gameObject);
-        }
+        DontDestroyOnLoad(transform.gameObject);
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    public void PlayMusic()
+    {
+        if (audioSource.isPlaying) return;
+        audioSource.Play();
     }
 }
