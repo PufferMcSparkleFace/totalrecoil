@@ -5,11 +5,22 @@ using UnityEngine;
 public class DoNotRestart : MonoBehaviour
 {
     public GameObject[] music;
+    public AudioSource corneria;
 
     private void Start()
     {
         music = GameObject.FindGameObjectsWithTag("GameMusic");
-        Destroy(music[1]);
+        if(music.Length == 1)
+        {
+            corneria.Play();
+        }
+        else
+        {
+            for (int i = 1; i < music.Length; i++)
+            {
+                Destroy(music[1]);
+            }
+        }
     }
 
     private void Awake()
