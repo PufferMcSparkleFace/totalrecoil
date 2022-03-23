@@ -26,11 +26,7 @@ public class GameManager : MonoBehaviour
         
     }
 
-    private void Start()
-    {
-        GameObject.FindGameObjectWithTag("GameMusic").GetComponent<DoNotRestart>().PlayMusic();
-    }
-
+    
     private void FixedUpdate()
     {
         if(health <= 0)
