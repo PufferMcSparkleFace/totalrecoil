@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     {
         GameObject.FindGameObjectWithTag("GameMusic").GetComponent<DoNotRestart>().PlayMusic();
     }
+
     private void FixedUpdate()
     {
         if(health <= 0)

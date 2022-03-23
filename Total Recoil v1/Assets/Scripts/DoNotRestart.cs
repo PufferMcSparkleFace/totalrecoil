@@ -13,7 +13,11 @@ public class DoNotRestart : MonoBehaviour
 
     public void PlayMusic()
     {
-        if (audioSource.isPlaying) return;
+        if (audioSource.isPlaying == true)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
         audioSource.Play();
     }
 }
