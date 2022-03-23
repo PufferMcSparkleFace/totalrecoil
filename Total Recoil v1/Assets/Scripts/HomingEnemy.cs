@@ -18,7 +18,10 @@ public class HomingEnemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.AddForce((target.transform.position - this.transform.position) * thrustSpeed);
+        Vector3 direction = target.transform.position - this.transform.position;
+        rb.AddForce(direction * thrustSpeed);
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        rb.rotation = angle - 87;
         if(health <= 0)
         {
             score.UpdateScore(1000);
