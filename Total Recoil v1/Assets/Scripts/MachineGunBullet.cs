@@ -23,4 +23,12 @@ public class MachineGunBullet : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Homing Enemy")
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }

@@ -124,14 +124,29 @@ public class Player : MonoBehaviour
             gameManager.Damage(40f);
             StartCoroutine(AsteroidImpact());
         }
-        
+        if (collision.gameObject.tag == "Homing Enemy")
+        {
+            gameManager.Damage(50f);
+            StartCoroutine(HomingEnemyImpact());
+
+        }
     }
+
+
 
     IEnumerator AsteroidImpact()
     {
         CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin = mainCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = asteroidScreenShake;
         yield return new WaitForSeconds(0.1f);
+        cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 0;
+    }
+
+    IEnumerator HomingEnemyImpact()
+    {
+        CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin = mainCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 20f;
+        yield return new WaitForSeconds(0.3f);
         cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 0;
     }
 
@@ -150,6 +165,7 @@ public class Player : MonoBehaviour
         {
             isInside = true;
         }
+      
     }
 
 

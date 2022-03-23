@@ -51,9 +51,27 @@ public class Asteroid : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Bullet" || collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Player")
         {
             if((this.size * 0.9f) >= this.minSize)
+            {
+                Split();
+                Split();
+            }
+            asteroidCollider.enabled = false;
+            spriteRenderer.enabled = false;
+            score.UpdateScore(100);
+            score.combo++;
+            crash.Play(0);
+            Destroy(this.gameObject, 4.0f);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Bullet")
+        {
+            if ((this.size * 0.9f) >= this.minSize)
             {
                 Split();
                 Split();
