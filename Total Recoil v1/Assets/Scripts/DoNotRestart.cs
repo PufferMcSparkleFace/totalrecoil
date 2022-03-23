@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class DoNotRestart : MonoBehaviour
 {
-    public AudioSource corneria;
+    static DoNotRestart instance;
 
-    private void Awake()
+    private void Start()
     {
-        GameObject currentBGM = GameObject.FindGameObjectWithTag("GameMusic");
-        if(currentBGM == null)
+        if(instance == null)
         {
-            corneria.Play();
-            DontDestroyOnLoad(this.gameObject);
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-        
+        else if(instance != this)
+        {
+            Destroy(gameObject);
+        }
     }
 }
