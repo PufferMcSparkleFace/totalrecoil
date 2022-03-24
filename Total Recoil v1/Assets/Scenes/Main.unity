@@ -866,7 +866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbce0bdb33fea414bbaf75fd98a3ab4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 10
+  spawnRate: 7
   spawnAmount: 1
   homingEnemyPrefab: {fileID: 6712335584373165024, guid: 48f4ef4ba9f46ed45923c499174157fe,
     type: 3}
@@ -1414,7 +1414,7 @@ GameObject:
   - component: {fileID: 733670655}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Score
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1931,7 +1931,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidPrefab: {fileID: -7349685150073299413, guid: 8147e19dad8ad8c43b6636dc5656b6ec,
     type: 3}
-  spawnRate: 0.5
+  spawnRate: 0.7
   spawnAmount: 1
   spawnDistance: 20
   trajectoryVariance: 15
