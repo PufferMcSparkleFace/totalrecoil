@@ -15,6 +15,7 @@ public class HomingEnemy : MonoBehaviour
     public AudioSource crash;
     public AudioSource death;
     public Rigidbody2D playerrb;
+    public GameObject scoreCanvas;
 
     private void Awake()
     {
@@ -23,6 +24,8 @@ public class HomingEnemy : MonoBehaviour
         playerrb = target.GetComponent<Rigidbody2D>();
         enemyCollider = GetComponent<PolygonCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
+        scoreCanvas = GameObject.FindGameObjectWithTag("Score");
+        score = scoreCanvas.GetComponent<Score>();
     }
 
     private void FixedUpdate()
@@ -31,7 +34,18 @@ public class HomingEnemy : MonoBehaviour
         rb.AddForce(direction * thrustSpeed);
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         rb.rotation = angle - 87;
-        
+        if (health <= 0)
+        {
+            Debug.Log("Blegh");
+            score.UpdateScore(1000);
+            health = 100;
+            sprite.enabled = false;
+            enemyCollider.enabled = false;
+            score.combo++;
+            death.Play(0);
+            Destroy(this.gameObject, 4.0f);
+        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -41,15 +55,7 @@ public class HomingEnemy : MonoBehaviour
             health = health - 3;
             crash.Play(0);
             playerrb.AddForce((transform.up * 40)* 20f);
-            if (health <= 0)
-            {
-                score.UpdateScore(1000);
-                sprite.enabled = false;
-                enemyCollider.enabled = false;
-                score.combo++;
-                death.Play(0);
-                Destroy(this.gameObject, 4.0f);
-            }
+            
         }
     }
 
@@ -59,15 +65,7 @@ public class HomingEnemy : MonoBehaviour
         {
             health = health - 1;
             shot.Play(0);
-            if (health <= 0)
-            {
-                score.UpdateScore(1000);
-                sprite.enabled = false;
-                enemyCollider.enabled = false;
-                score.combo++;
-                death.Play(0);
-                Destroy(this.gameObject, 4.0f);
-            }
+            
         }
     }
 }
