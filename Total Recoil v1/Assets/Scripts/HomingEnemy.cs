@@ -9,11 +9,18 @@ public class HomingEnemy : MonoBehaviour
     public GameObject target;
     public float health = 20.0f;
     public Score score;
+    public PolygonCollider2D enemyCollider;
+    public SpriteRenderer sprite;
+    public AudioSource shot;
+    public AudioSource crash;
+    public AudioSource death;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player");
+        enemyCollider = GetComponent<PolygonCollider2D>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()
@@ -22,11 +29,7 @@ public class HomingEnemy : MonoBehaviour
         rb.AddForce(direction * thrustSpeed);
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         rb.rotation = angle - 87;
-        if(health <= 0)
-        {
-            score.UpdateScore(1000);
-            Destroy(this.gameObject);
-        }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -34,6 +37,15 @@ public class HomingEnemy : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             health = health - 3;
+            if (health <= 0)
+            {
+                score.UpdateScore(1000);
+                sprite.enabled = false;
+                enemyCollider.enabled = false;
+                score.combo++;
+                death.Play(0);
+                Destroy(this.gameObject, 4.0f);
+            }
         }
     }
 
@@ -42,6 +54,15 @@ public class HomingEnemy : MonoBehaviour
         if(collision.gameObject.tag == "Bullet")
         {
             health = health - 1;
+            if (health <= 0)
+            {
+                score.UpdateScore(1000);
+                sprite.enabled = false;
+                enemyCollider.enabled = false;
+                score.combo++;
+                death.Play(0);
+                Destroy(this.gameObject, 4.0f);
+            }
         }
     }
 }

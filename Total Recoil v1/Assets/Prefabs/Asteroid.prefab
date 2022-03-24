@@ -158,6 +158,8 @@ MonoBehaviour:
   speed: 75
   lifetime: 10
   crash: {fileID: -1978514184897442919}
+  canvas: {fileID: 0}
+  score: {fileID: 0}
 --- !u!82 &-1978514184897442919
 AudioSource:
   m_ObjectHideFlags: 0
