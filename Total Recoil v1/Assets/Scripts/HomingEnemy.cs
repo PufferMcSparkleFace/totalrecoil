@@ -14,11 +14,13 @@ public class HomingEnemy : MonoBehaviour
     public AudioSource shot;
     public AudioSource crash;
     public AudioSource death;
+    public Rigidbody2D playerrb;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player");
+        playerrb = target.GetComponent<Rigidbody2D>();
         enemyCollider = GetComponent<PolygonCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
     }
@@ -37,6 +39,8 @@ public class HomingEnemy : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             health = health - 3;
+            crash.Play(0);
+            playerrb.AddForce((transform.up * 40)* 20f);
             if (health <= 0)
             {
                 score.UpdateScore(1000);
@@ -54,6 +58,7 @@ public class HomingEnemy : MonoBehaviour
         if(collision.gameObject.tag == "Bullet")
         {
             health = health - 1;
+            shot.Play(0);
             if (health <= 0)
             {
                 score.UpdateScore(1000);
